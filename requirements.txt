@@ -1,0 +1,22 @@
+# PyTorch CUDA
+# Use this when TOURCH_LIBRARY will be fixed for 2.1.0 and above
+#torch torchvision torchaudio
+# otherwise use this
+# Most recent known version where DeppView.Profile 0.13.1 works it supports only CUDA 11.8
+torch==2.0.1 
+torchvision==0.15.2
+torchaudio==2.0.2
+
+# Django
+django
+djangorestframework
+
+# Swagger doc
+drf-yasg
+
+# Environment settings
+django-environ
+colorlog 
+
+# Deepview.Profile
+deepview-profile
