@@ -75,7 +75,7 @@ docker run -it --rm --gpus all -v $(pwd):/app/ -p 80:80 deepview/service
 
 - Production server must not use Django development web server
 - You will need to route Django static files to be able see Swagger UI
-- Don't forget to check final settings by 
+- Don't forget to check final settings by
 
 ```bash
 python manage.py check --deploy
@@ -90,3 +90,4 @@ python manage.py check --deploy
 ## Dev tooling
 
 Black v2023+ is used for code formatting
+Ruff v0.0.292+ is used for code linting

@@ -1,6 +1,8 @@
-import os, environ
+import os
+import environ
 from pathlib import Path
-import colorlog, logging
+import colorlog
+import logging
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

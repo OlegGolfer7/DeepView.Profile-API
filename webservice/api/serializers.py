@@ -1,11 +1,10 @@
-import os
-import zipfile
 import logging
-
+import os
 import tempfile
+import zipfile
+
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-
 
 log = logging.getLogger("deepview")
 
@@ -36,7 +35,7 @@ class ProjectUploadSerializer(serializers.Serializer):
         try:
             with zipfile.ZipFile(file_path, "r") as zip_ref:
                 zip_ref.extractall(tmp_dir)
-        except:
+        except:  # noqa: E722
             log.exception(f"Error while unzipping project archive: {file_path}")
             raise ValidationError("Invalid project archive")
 

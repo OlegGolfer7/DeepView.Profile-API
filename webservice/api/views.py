@@ -1,22 +1,19 @@
+import logging
 import os
 import re
+import sqlite3
 import subprocess
 import sys
-import logging
-import sqlite3
 
 import pkg_resources
 import torch
-
 from django.http import FileResponse
-
-from rest_framework.decorators import api_view, parser_classes
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.parsers import MultiPartParser
-
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework import status
+from rest_framework.decorators import api_view, parser_classes
+from rest_framework.parsers import MultiPartParser
+from rest_framework.response import Response
 
 from webservice.api.serializers import ProjectUploadSerializer
 
@@ -67,7 +64,7 @@ def run_profiling(request):
     Mode - profiling mode (time or memory)
     Entry point - Name of the entry point .py file. Must be in the root folder of the project (e.g. entry_point.py)
     Output - output format (json or sqlite)
-    """
+    """  # noqa: E501
     serializer = ProjectUploadSerializer(data=request.data)
 
     if serializer.is_valid():
@@ -235,7 +232,7 @@ def get_status(request):
         else:
             gpu_driver = f"OK ({driver_cuda_version})"
 
-    except:  # pylint: disable=bare-except
+    except:  # noqa: E722
         log.exception("Error while checking GPU driver version")
 
     # Check DeepView.Profile package version
