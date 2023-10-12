@@ -23,6 +23,5 @@ RUN python -m pip install --no-cache-dir -r requirements.txt
 
 WORKDIR /app
 
-#ADD deepview_profile_service .
-
+# This config for dev server only
 ENTRYPOINT python manage.py runserver --insecure 0.0.0.0:80

@@ -184,17 +184,18 @@ def run_profiling(request):
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @api_view()
-def get_status(request): 
+def get_status(request):
     """
     Get service status
 
     ---
-    """    
+    """
     expected_python_version = pkg_resources.parse_version("3.9")
     expected_cuda_version = pkg_resources.parse_version("11.7")
     expected_deepview_version = pkg_resources.parse_version("0.13.1")
-    
+
     # Check Python version
     python_version = pkg_resources.parse_version(sys.version.split()[0])
     python_status = f"OK ({python_version})"
@@ -219,7 +220,9 @@ def get_status(request):
 
     try:
         log.debug("Checking GPU driver version")
-        process_output = subprocess.run(["nvidia-smi"], capture_output=True, text=True, check=False)
+        process_output = subprocess.run(
+            ["nvidia-smi"], capture_output=True, text=True, check=False
+        )
 
         match = re.search(r"CUDA Version:\s*([\d.]+)", process_output.stdout)
         if match:
@@ -232,7 +235,7 @@ def get_status(request):
         else:
             gpu_driver = f"OK ({driver_cuda_version})"
 
-    except: # pylint: disable=bare-except
+    except:  # pylint: disable=bare-except
         log.exception("Error while checking GPU driver version")
 
     # Check DeepView.Profile package version

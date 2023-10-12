@@ -1,0 +1,6 @@
+.vscode
+.vscode/**/*
+
+webservice/__pycache__
+webservice/api/__pycache__
+webservice/api/migrations/__pycache__

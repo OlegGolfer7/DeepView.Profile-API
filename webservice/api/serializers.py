@@ -9,6 +9,7 @@ from rest_framework.exceptions import ValidationError
 
 log = logging.getLogger("deepview")
 
+
 class ProjectUploadSerializer(serializers.Serializer):
     project_archive = serializers.FileField()
     mode = serializers.ChoiceField(choices=["time", "memory"], required=True)
