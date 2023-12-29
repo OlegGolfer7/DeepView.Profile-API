@@ -19,4 +19,4 @@ django-environ
 colorlog 
 
 # Deepview.Profile
-deepview-profile
+deepview-profile==0.13.3
