@@ -239,7 +239,7 @@ def profile_analysis(serializer, work_dir, deepview_output_file):
 
     selected_no_files = ""
     if serializer.validated_data["exclude_source_files"] == "exclude_files":
-        selected_no_files = "--exclude_source"
+        selected_no_files = "--exclude-source"
         run_params.append(selected_no_files)
 
     run_params.append("-o")
